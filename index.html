@@ -2099,7 +2099,7 @@ button:disabled, .btn:disabled { opacity: 0.38; cursor: not-allowed; transform: 
 
       <div class="field-group">
         <label>Business Name <span style="color:var(--accent2);">*</span></label>
-        <input type="text" id="biz-name" placeholder="e.g. Northside Dental Clinic · Hampton Roads Medical Innovation · Joe's Coffee" maxlength="120" />
+        <input type="text" id="biz-name" placeholder="e.g. Coastal Orthodontics · Main Street Bakery · Northside Dental Clinic" maxlength="120" />
       </div>
 
       <div class="field-group">
@@ -2147,7 +2147,7 @@ button:disabled, .btn:disabled { opacity: 0.38; cursor: not-allowed; transform: 
 
       <div class="field-group">
         <label>Service Area <span style="color:var(--text3);font-size:10px;font-weight:400;text-transform:none;letter-spacing:0;">— who do you serve geographically?</span></label>
-        <input type="text" id="biz-service-area" placeholder="e.g. Hampton Roads region · Nationwide · Chicago metro area · Virginia statewide" maxlength="150" />
+        <input type="text" id="biz-service-area" placeholder="e.g. Greater London · Nationwide · Chicago metro area · Sydney metro area" maxlength="150" />
       </div>
 
       <div class="field-group">
@@ -2248,7 +2248,7 @@ button:disabled, .btn:disabled { opacity: 0.38; cursor: not-allowed; transform: 
 
       <div class="field-group" style="margin-bottom:0;">
         <label>Mission Statement or Core Purpose <span style="color:var(--text3);font-size:10px;font-weight:400;text-transform:none;letter-spacing:0;">— important for nonprofits and grant matching</span></label>
-        <textarea id="biz-mission" placeholder="e.g. To advance medical innovation and improve health outcomes for underserved communities in Hampton Roads..." style="min-height:80px;"></textarea>
+        <textarea id="biz-mission" placeholder="e.g. To improve health outcomes for underserved communities in our city..." style="min-height:80px;"></textarea>
       </div>
     </div>
 
@@ -2273,7 +2273,7 @@ button:disabled, .btn:disabled { opacity: 0.38; cursor: not-allowed; transform: 
           </div>
           <div class="field-group">
             <label>State of Incorporation</label>
-            <input type="text" id="biz-state-inc" placeholder="e.g. Virginia" maxlength="40" />
+            <input type="text" id="biz-state-inc" placeholder="e.g. Texas · Ontario · United Kingdom · Queensland" maxlength="40" />
           </div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
@@ -3807,7 +3807,7 @@ function showScreen(n) {
   // ── Ricky proactive guidance ──
   const _rickyMsgs = {
     0: "Hey! I'm Ricky — your guide through PulseCore. You'll need a free Anthropic API key to get started. Get one at console.anthropic.com — it takes about 2 minutes. Once you're connected I'll walk you through everything.",
-    1: "Now tell me about your business. Be specific — instead of 'doctor' type 'pediatric orthodontist.' Instead of 'Virginia' type 'Chesapeake, VA.' The more specific you are, the better every result that follows will be.",
+    1: "Now tell me about your business. Be specific — instead of 'doctor' type 'pediatric orthodontist.' Instead of 'my city' type your actual city and state or country. The more specific you are, the better every result that follows will be.",
     3: "Based on what we found in your community, I've identified 3 content opportunities your competitors are missing. These are not random ideas — they are gaps specific to your business type and your city right now.",
     4: "Pick the platforms where your customers actually spend time. If you serve local families, Instagram and Facebook are your best bet. If you're targeting professionals, add LinkedIn. You can always change this later.",
     5: "Now I'm writing your content. This is built around your specific community facts, your business, and your audience. It is not a template — it is written for you. Use it to film yourself, give it to HeyGen for an AI video, or just use the caption for a photo post.",
