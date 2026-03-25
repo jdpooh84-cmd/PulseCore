@@ -3756,7 +3756,17 @@ function dismissGreeting() {
   const ov = document.getElementById('ricky-greeting-overlay');
   if (!ov || ov.style.display === 'none') return;
   ov.classList.add('dismissing');
-  setTimeout(() => { ov.style.display = 'none'; }, 420);
+  setTimeout(() => {
+    ov.style.display = 'none';
+    // Always land on Connect (Step 1) unless user already has a key and profile
+    const hasKey     = !!(typeof API_KEY !== 'undefined' && API_KEY && API_KEY.startsWith('sk-ant-'));
+    const hasProfile = !!(typeof biz !== 'undefined' && biz.niche && biz.city);
+    if (hasKey && hasProfile) {
+      showScreen(1); // returning user — go to profile
+    } else {
+      showScreen(0); // new user — always show Connect first
+    }
+  }, 420);
 }
 
 function toggleExplainer() {
