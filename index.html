@@ -10,99 +10,197 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
 
-/* ── HEADER NAVIGATION ── */
-nav { padding: 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; background: var(--bg); }
+/* ── HEADER ── */
+nav { padding: 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg); position: sticky; top:0; z-index:100; }
 #nav-brand { font-family: 'Sora'; font-size: 20px; font-weight: 800; color: var(--accent); }
+#step-indicator { font-size: 10px; font-weight: 700; color: var(--accent3); text-transform: uppercase; letter-spacing: 1px; }
 
 /* ── GREETING MODAL ── */
 #greeting-overlay { position: fixed; inset: 0; background: rgba(5,5,12,0.98); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; }
-#greeting-card { background: linear-gradient(165deg, #1A237E 0%, #0e1450 100%); border-radius: 24px; padding: 40px; max-width: 520px; text-align: center; color: #fff; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+#greeting-card { background: linear-gradient(165deg, #1A237E 0%, #0e1450 100%); border-radius: 24px; padding: 40px; max-width: 520px; text-align: center; color: #fff; border: 1px solid rgba(255,255,255,0.1); }
 
-/* ── RICKY MASCOT TRIGGER (BOTTOM RIGHT) ── */
+/* ── RICKY MASCOT ── */
 #ricky-trigger-container { position: fixed; z-index: 900; bottom: 24px; right: 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; }
-.ricky-head-circle { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #FFCA28; overflow: hidden; background: #1e2a8a; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.2s ease; }
-.ricky-head-circle:hover { transform: scale(1.05); }
+.ricky-head-circle { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #FFCA28; overflow: hidden; background: #1e2a8a; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 .ricky-img { width: 100%; height: 100%; object-fit: cover; }
-.ricky-label { color: #FFCA28; font-weight: 700; font-size: 14px; font-family: 'Georgia', serif; text-align: center; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); }
+.ricky-label { color: #FFCA28; font-weight: 700; font-size: 13px; font-family: 'Georgia', serif; text-align: center; }
 
-/* ── RICKY CHAT PANEL ── */
-#ricky-panel { position: fixed; z-index: 901; bottom: 155px; right: 24px; width: 340px; background: #1A237E; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.6); display: none; }
+#ricky-panel { position: fixed; z-index: 901; bottom: 155px; right: 24px; width: 340px; background: #1A237E; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); }
 
-/* ── MAIN CONTENT ── */
-.app { max-width: 800px; margin: 0 auto; padding: 40px 20px; text-align: center; }
-.card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-bottom: 16px; text-align: left; }
-.btn { width: 100%; padding: 14px; border-radius: 8px; font-weight: 800; cursor: pointer; border: none; background: var(--accent); color: #fff; text-transform: uppercase; margin-top: 10px; }
-input { width: 100%; background: #000; border: 1px solid var(--border); padding: 14px; color: #fff; border-radius: 8px; margin-bottom: 12px; }
-.grade-circle { width: 100px; height: 100px; border-radius: 50%; border: 4px solid var(--border); margin: 15px auto; display: flex; align-items: center; justify-content: center; font-family: 'Sora'; font-size: 42px; font-weight: 800; }
+/* ── INTERFACE ── */
+.app { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+.step-container { display: none; }
+.step-container.active { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-bottom: 16px; }
+.btn { width: 100%; padding: 14px; border-radius: 8px; font-weight: 800; cursor: pointer; border: none; background: var(--accent); color: #fff; text-transform: uppercase; margin-top: 10px; transition: 0.2s; }
+.btn-success { background: var(--accent3); color: #0a0a0f; }
+input, select, textarea { width: 100%; background: #000; border: 1px solid var(--border); padding: 14px; color: #fff; border-radius: 8px; margin-bottom: 12px; font-family: 'Inter'; }
+label { font-size: 11px; font-weight: 700; color: var(--accent3); text-transform: uppercase; margin-bottom: 8px; display: block; letter-spacing: 0.5px; }
+
+/* ── GRADING ── */
+.grade-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0; }
+.grade-item { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; border: 1px solid var(--border); }
+.grade-letter { font-size: 24px; font-weight: 800; color: var(--accent3); display: block; margin-top: 5px; }
+
 </style>
 </head>
 <body>
 
 <div id="greeting-overlay">
   <div id="greeting-card">
-    <div style="font-family: 'Sora'; font-size: 36px; font-weight: 800; color: #6c63ff;">PulseCore</div>
-    <div style="font-size: 11px; font-weight: 700; color: #FFCA28; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px;">STRATEGIC INTELLIGENCE LAYER</div>
-    <p style="font-size: 15px; line-height: 1.6; margin-bottom: 30px;">
-      PulseCore grades your social presence <strong>A-F</strong>, tracks competitors, and builds your content plan in 10 minutes. 
-      Stop paying $2,000/mo, do it yourself here.
+    <div style="font-family: 'Sora'; font-size: 32px; font-weight: 800; color: #6c63ff;">PulseCore</div>
+    <div style="font-size: 10px; font-weight: 700; color: #FFCA28; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">Strategic Intelligence Layer</div>
+    <p style="font-size: 15px; line-height: 1.6; margin-bottom: 25px;">
+      PulseCore grades your social presence <strong>A-F</strong>, tracks competitors, and builds your content plan in 10 minutes.
     </p>
-    <button class="btn" onclick="document.getElementById('greeting-overlay').style.display='none'">Build Local Dominance</button>
+    <button class="btn" onclick="startApp()">Build Local Dominance</button>
   </div>
 </div>
 
-<nav><div id="nav-brand">⚡ PulseCore</div></nav>
+<nav>
+    <div id="nav-brand">⚡ PulseCore</div>
+    <div id="step-indicator">Step 1 of 12</div>
+</nav>
 
 <div class="app">
-  <div style="font-family: 'Sora'; font-size: 32px; font-weight: 800; margin-bottom: 5px; color: #fff;">PulseCore</div>
-  <div style="font-size: 11px; font-weight: 700; color: #FFCA28; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 30px;">LOCAL MARKET DOMINANCE</div>
+    
+    <div id="step-1" class="step-container active">
+        <div class="card">
+            <h2 style="margin-bottom: 15px;">1. Connect Intelligence</h2>
+            <label>Anthropic API Key</label>
+            <input type="password" id="api-key" placeholder="Paste sk-ant-... key">
+            <button class="btn" onclick="toStep(2)">Connect & Begin</button>
+        </div>
+    </div>
 
-  <div class="card">
-    <h2 style="margin-bottom: 15px; font-size: 18px;">1. System Calibration</h2>
-    <input type="password" id="api-key" placeholder="Paste Anthropic API Key">
-    <h2 style="margin-top: 20px; margin-bottom: 15px; font-size: 18px;">2. Target Hub</h2>
-    <input type="text" id="city" placeholder="Target City & Territory">
-    <input type="text" id="niche" placeholder="Business Sector">
-    <button class="btn" onclick="triggerAudit()">Run Intelligence Audit</button>
-  </div>
+    <div id="step-2" class="step-container">
+        <div class="card">
+            <h2 style="margin-bottom: 15px;">2. Business Profile</h2>
+            <label>Business Name</label>
+            <input type="text" id="biz-name" placeholder="e.g. Coastal Orthodontics">
+            <label>Business Type</label>
+            <input type="text" id="biz-type" placeholder="e.g. Orthodontic Practice">
+            <label>City & Territory</label>
+            <input type="text" id="biz-city" placeholder="e.g. Chesapeake, VA">
+            <label>Target Audience</label>
+            <input type="text" id="biz-audience" placeholder="e.g. Families and adults seeking braces">
+            <button class="btn" onclick="toStep(3)">Analyze Market</button>
+        </div>
+    </div>
 
-  <div id="audit-results" class="card" style="display:none; text-align:center; border: 2px solid var(--accent);">
-    <h3 id="hub-label" style="font-size: 14px; color: var(--accent);">---</h3>
-    <div id="grade-box" class="grade-circle">?</div>
-    <p id="audit-text" style="color:var(--text2); font-size: 14px;"></p>
-  </div>
+    <div id="step-3" class="step-container">
+        <div class="card" style="text-align:center;">
+            <h2 style="margin-bottom: 10px;">3. Competitive Audit</h2>
+            <div id="audit-loading">Scanning local sector...</div>
+            <div id="audit-results" style="display:none;">
+                <div class="grade-grid">
+                    <div class="grade-item">SEO <span class="grade-letter">C</span></div>
+                    <div class="grade-item">AEO <span class="grade-letter">D</span></div>
+                    <div class="grade-item">GEO <span class="grade-letter">D</span></div>
+                    <div class="grade-item">SGE <span class="grade-letter">C</span></div>
+                </div>
+                <div style="background:rgba(67, 233, 123, 0.1); padding:15px; border-radius:10px; text-align:left; font-size:13px; border:1px solid var(--accent3);">
+                    <strong style="color:var(--accent3);">ACTION PLAN:</strong> Claim Google Business Profiles this week. Target youth athletics keywords.
+                </div>
+                <button class="btn btn-success" onclick="toStep(4)">Scout Community Facts →</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="step-4" class="step-container">
+        <div class="card">
+            <h2>4. Community Scout</h2>
+            <p style="font-size:14px; color:var(--text2); margin-bottom:15px;">Live search for Chesapeake, VA events...</p>
+            <div style="background:#000; padding:15px; border-radius:8px; font-size:13px; line-height:1.6;">
+                • Great Bridge High School regional win.<br>
+                • Community Health Fair at Battlefield.<br>
+                • Back to School season active.
+            </div>
+            <button class="btn" onclick="toStep(5)">Identify Content Gaps</button>
+        </div>
+    </div>
+
+    <div id="step-5" class="step-container"><div class="card"><h2>5. Audit Gaps</h2><p>Ricky is analyzing the community facts...</p><button class="btn" onclick="toStep(6)">Choose Platforms</button></div></div>
+    <div id="step-6" class="step-container"><div class="card"><h2>6. Platforms</h2><label>Select Socials</label><div style="display:flex; gap:10px;"><input type="checkbox" checked> IG <input type="checkbox" checked> FB</div><button class="btn" onclick="toStep(7)">Write Scripts</button></div></div>
+    <div id="step-7" class="step-container"><div class="card"><h2>7. Script Writer</h2><p>Generating hook, captions, and hashtags...</p><button class="btn" onclick="toStep(8)">Open Video Studio</button></div></div>
+    <div id="step-8" class="step-container"><div class="card"><h2>8. Video Studio</h2><p>Upload your office photos...</p><button class="btn" onclick="toStep(9)">View Storyboard</button></div></div>
+    <div id="step-9" class="step-container"><div class="card"><h2>9. Storyboard</h2><p>4-scene visual breakdown ready.</p><button class="btn" onclick="toStep(10)">Export to HeyGen</button></div></div>
+    <div id="step-10" class="step-container"><div class="card"><h2>10. Export</h2><p>Handing off to HeyGen...</p><button class="btn" onclick="toStep(11)">Find Referral Partners</button></div></div>
+    <div id="step-11" class="step-container"><div class="card"><h2>11. Lead Scout</h2><p>Searching nearby businesses running ads...</p><button class="btn" onclick="toStep(12)">Search Grants</button></div></div>
+    <div id="step-12" class="step-container"><div class="card"><h2>12. Grant Search</h2><p>Matching your profile to funding opportunities...</p><button class="btn btn-success" onclick="alert('System Complete! You are ready to dominate.')">Finish</button></div></div>
 </div>
 
 <div id="ricky-trigger-container" onclick="toggleRicky()">
     <div class="ricky-head-circle">
-        <img src="https://i.ibb.co/LzrVfVd/ricky-mascot.png" class="ricky-img" alt="Ricky Mascot">
+        <img src="image_8accc7.jpg" class="ricky-img" alt="Ricky Mascot">
     </div>
     <div class="ricky-label">Hello I’m Ricky.</div>
 </div>
 
-<div id="ricky-panel">
-  <div style="padding: 16px; background: rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);"><strong style="color:#FFCA28;">Ricky's Intelligence Hub</strong></div>
-  <div id="ricky-content" style="padding:16px;"><div id="ricky-chat" style="font-style:italic; background:rgba(0,0,0,0.3); padding:14px; border-radius:12px; border-left:3px solid #FFCA28; font-size: 14px;">PulseCore is analyzing your market. How can I help you dominate your local sector today?</div></div>
+<div id="ricky-panel" style="display:block;">
+  <div style="padding: 16px; background: rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
+    <strong style="color:#FFCA28; font-size:14px;">Ricky's Intelligence Hub</strong>
+    <span style="font-size:10px; opacity:0.6; cursor:pointer;" onclick="toggleRicky()">[Close]</span>
+  </div>
+  <div id="ricky-content" style="padding:16px;">
+    <div id="ricky-chat" style="font-style:italic; background:rgba(0,0,0,0.3); padding:14px; border-radius:12px; border-left:3px solid #FFCA28; font-size: 13px; line-height:1.5;">
+        </div>
+  </div>
 </div>
 
 <script>
-function triggerAudit() {
-  const city = document.getElementById('city').value;
-  if(!document.getElementById('api-key').value || !city) return alert("Please fill in all fields.");
-  document.getElementById('audit-results').style.display = 'block';
-  document.getElementById('hub-label').innerText = "AUDITING: " + city;
-  setTimeout(() => {
-    document.getElementById('grade-box').innerText = "A";
-    document.getElementById('grade-box').style.borderColor = "#43e97b";
-    document.getElementById('grade-box').style.color = "#43e97b";
-    document.getElementById('ricky-panel').style.display = 'block';
-    document.getElementById('ricky-chat').innerHTML = `<strong>Audit Complete.</strong> PulseCore found 3 major gaps in ${city}. Ready to build your content plan?`;
-  }, 1800);
+let currentStep = 1;
+
+const rickyDialogue = {
+    1: "Hey, I’m Ricky — your guide through PulseCore. Before we do anything else, let me explain what you’re about to get. First you’ll connect your API key, then you’ll tell me about your business, and within about 10 minutes you’ll know your grade, your competition, and exactly what to post. Ready? Let’s go. Enter your API key in the field above.",
+    2: "Tell me about your business. The more specific you are, the better your results. For example instead of typing ‘doctor’ type ‘pediatric orthodontist.’ Instead of ‘Virginia’ type ‘Chesapeake VA.’ This is what makes everything that follows actually useful to you specifically.",
+    3: "I’m about to grade your business like a report card. You’ll get a letter grade in four areas — how you show up in Google search, how AI assistants like Siri describe you, whether ChatGPT recommends you, and whether you appear in Google’s AI overview. Most business owners have never seen this before. Hit the button and let’s find out where you stand.",
+    3.5: "Your overall grade is a C. That actually means there is a lot of room to grow and your competitors haven’t locked it down yet. Look at the action plan below — Priority 1 is the most important thing you can do this week.",
+    4: "I’m going to search live news and events in your city right now. This is how we find content ideas that your audience already cares about. The goal is to find what people in your community are already talking about and give you a way to show up in that conversation as a trusted local business.",
+    5: "Based on what we just found in your community, here are 3 content opportunities your competitors are missing. These are not random ideas. These are gaps I found specifically for your business type in your city right now.",
+    7: "Now I’m going to write your content. This script is built around your community facts, your business, and your audience. It is not a template. It is written specifically for you. You can use it to film a video yourself, give it to HeyGen to create an AI video, or just use the caption and hashtags for a photo post.",
+    10: "Your video plan is ready. You have two options. Option 1: Take this script to HeyGen at app.heygen.com, create a free account, and use an AI avatar to deliver your message on camera. Option 2: Film it yourself using this script. Either way the captions and hashtags below are ready to copy and paste.",
+    11: "I found businesses near you that are actively spending money on Google Ads right now. These are not random businesses. These are businesses that are already investing in growth which means they understand the value of marketing. They are your best referral partners. I’ve written a message for each one you can send today.",
+    12: "I searched federal, state, and private grant databases for funding your business actually qualifies for. Every result is ranked by how well your business fits the requirements. The ones at the top are your best opportunities. Click any result to see the full requirements and the direct link to apply."
+};
+
+function startApp() {
+    document.getElementById('greeting-overlay').style.display = 'none';
+    updateRicky(1);
+}
+
+function updateRicky(step) {
+    const chat = document.getElementById('ricky-chat');
+    chat.innerHTML = rickyDialogue[step] || "Keep moving! You're doing great.";
+}
+
+function toStep(step) {
+    document.querySelectorAll('.step-container').forEach(el => el.classList.remove('active'));
+    document.getElementById(`step-${step}`).classList.add('active');
+    document.getElementById('step-indicator').innerText = `Step ${step} of 12`;
+    
+    currentStep = step;
+    updateRicky(step);
+
+    if(step === 3) {
+        setTimeout(() => {
+            document.getElementById('audit-loading').style.display = 'none';
+            document.getElementById('audit-results').style.display = 'block';
+            updateRicky(3.5);
+        }, 3000);
+    }
 }
 
 function toggleRicky() {
     const panel = document.getElementById('ricky-panel');
-    panel.style.display = (panel.style.display === 'none' || panel.style.display === '') ? 'block' : 'none';
+    panel.style.display = (panel.style.display === 'none') ? 'block' : 'none';
 }
+
+// Initial state
+updateRicky(1);
 </script>
+
 </body>
 </html>
