@@ -21,8 +21,27 @@ nav { padding: 20px; border-bottom: 1px solid var(--border); display: flex; alig
 
 /* ── RICKY TRIGGER (BOTTOM RIGHT) ── */
 #ricky-trigger-container { position: fixed; z-index: 900; bottom: 24px; right: 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; }
-.ricky-head-circle { width: 100px; height: 100px; border-radius: 50%; border: 3px solid #FFCA28; overflow: hidden; background: #1e2a8a; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
-.ricky-img { width: 100%; height: 100%; object-fit: cover; }
+.ricky-head-circle { 
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    border: 3px solid #FFCA28; 
+    /* removed overflow: hidden; */ 
+    background: #1e2a8a; 
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6); 
+    /* New: styles to center and style the text "Ricky" inside the circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: #FFCA28;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.ricky-head-circle:hover { transform: scale(1.05); }
+/* removed .ricky-img style */
 .ricky-label { color: #FFCA28; font-weight: 800; font-size: 14px; font-family: 'Georgia', serif; text-align: center; text-shadow: 2px 2px 4px #000; }
 
 /* ── RICKY PANEL ── */
@@ -114,7 +133,7 @@ label { font-size: 11px; font-weight: 700; color: var(--accent3); text-transform
 
 <div id="ricky-trigger-container" onclick="toggleRicky()">
     <div class="ricky-head-circle">
-        <img src="https://i.ibb.co/LzrVfVd/ricky-mascot.png" class="ricky-img" alt="Ricky Sloth">
+        Ricky
     </div>
     <div class="ricky-label">Hello I’m Ricky.</div>
 </div>
