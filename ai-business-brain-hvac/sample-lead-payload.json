@@ -1,0 +1,18 @@
+{
+  "offer_name": "AI Business Brain",
+  "business_name": "Coastal Comfort HVAC",
+  "business_city": "Chesapeake",
+  "business_state": "Virginia",
+  "service_category": "HVAC",
+  "source_page": "Coastal Comfort HVAC Website Lead Form",
+  "utm_source": "google",
+  "utm_medium": "cpc",
+  "utm_campaign": "spring_ac_tuneup",
+  "first_name": "Jordan",
+  "last_name": "Parker",
+  "email": "jordan.parker@example.com",
+  "phone": "757-555-0199",
+  "service_needed": "AC Repair",
+  "urgency": "Emergency",
+  "message": "Our AC is blowing warm air and the house is 82 degrees."
+}
