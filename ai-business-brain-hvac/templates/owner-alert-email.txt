@@ -1,0 +1,20 @@
+Lead Alert - AI Business Brain
+
+You have a new HVAC lead for {{BUSINESS_NAME}}.
+
+Lead details:
+- Lead ID: {{LEAD_ID}}
+- Name: {{FULL_NAME}}
+- Email: {{EMAIL}}
+- Phone: {{PHONE}}
+- Service Needed: {{SERVICE_NEEDED}}
+- Urgency: {{URGENCY}}
+- Message: {{MESSAGE}}
+- Submitted At: {{CREATED_AT}}
+- Source Page: {{SOURCE_PAGE}}
+- UTM Source: {{UTM_SOURCE}}
+- UTM Medium: {{UTM_MEDIUM}}
+- UTM Campaign: {{UTM_CAMPAIGN}}
+
+Recommended action:
+Call this lead within 5 minutes for highest close rate.

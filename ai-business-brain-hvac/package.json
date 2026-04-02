@@ -1,0 +1,18 @@
+{
+  "name": "ai-business-brain-hvac-lead-system",
+  "version": "1.0.0",
+  "description": "Simple lead capture and follow-up system for home services (HVAC)",
+  "main": "lead-webhook-server.js",
+  "scripts": {
+    "start": "node lead-webhook-server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "nodemailer": "^7.0.5"
+  }
+}

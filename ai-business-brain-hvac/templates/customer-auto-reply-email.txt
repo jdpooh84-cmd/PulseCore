@@ -1,0 +1,10 @@
+Hi {{FIRST_NAME}},
+
+Thanks for contacting {{BUSINESS_NAME}} in {{BUSINESS_CITY}}, {{BUSINESS_STATE}}.
+We received your request for {{SERVICE_NEEDED}} and our team will follow up shortly.
+
+If this is urgent, call us now at {{BUSINESS_PHONE}}.
+
+Thank you,
+{{BUSINESS_OWNER_NAME}}
+{{OFFER_NAME}} Follow-Up Team

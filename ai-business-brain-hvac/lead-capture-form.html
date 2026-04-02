@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coastal Comfort HVAC | Request Service</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f5f8fc;
+        color: #1f2937;
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 32px auto;
+        padding: 24px;
+        background: #ffffff;
+        border: 1px solid #dbe4f0;
+        border-radius: 12px;
+      }
+      h1 {
+        margin-top: 0;
+        font-size: 28px;
+      }
+      p.subtitle {
+        margin-top: 0;
+        color: #475569;
+      }
+      form {
+        display: grid;
+        gap: 12px;
+      }
+      label {
+        font-weight: 600;
+      }
+      input,
+      select,
+      textarea,
+      button {
+        font: inherit;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+      }
+      textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      button {
+        padding: 12px 14px;
+        border: 0;
+        border-radius: 8px;
+        background: #0f3d75;
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      #form-status {
+        margin-top: 12px;
+        padding: 10px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        display: none;
+      }
+      .help {
+        margin-top: 16px;
+        font-size: 13px;
+        color: #64748b;
+      }
+      @media (max-width: 640px) {
+        .row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Book Your HVAC Service</h1>
+      <p class="subtitle">Coastal Comfort HVAC - Chesapeake, Virginia</p>
+
+      <form id="ai-business-brain-lead-form">
+        <div class="row">
+          <div>
+            <label for="first_name">First Name *</label>
+            <input id="first_name" name="first_name" required />
+          </div>
+          <div>
+            <label for="last_name">Last Name *</label>
+            <input id="last_name" name="last_name" required />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div>
+            <label for="phone">Phone *</label>
+            <input id="phone" name="phone" type="tel" required />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="service_needed">Service Needed *</label>
+            <select id="service_needed" name="service_needed" required>
+              <option value="">Select one</option>
+              <option value="AC Repair">AC Repair</option>
+              <option value="Heating Repair">Heating Repair</option>
+              <option value="System Tune-Up">System Tune-Up</option>
+              <option value="New Installation Quote">New Installation Quote</option>
+              <option value="Indoor Air Quality">Indoor Air Quality</option>
+            </select>
+          </div>
+          <div>
+            <label for="urgency">Urgency *</label>
+            <select id="urgency" name="urgency" required>
+              <option value="Normal">Normal</option>
+              <option value="This Week">This Week</option>
+              <option value="Same-Day">Same-Day</option>
+              <option value="Emergency">Emergency</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="message">What do you need help with? *</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <button id="submit-button" type="submit">Send Request</button>
+      </form>
+
+      <div id="form-status" aria-live="polite"></div>
+
+      <div class="help">Powered by AI Business Brain lead capture.</div>
+    </div>
+    <script src="./form-handler.js"></script>
+  </body>
+</html>
